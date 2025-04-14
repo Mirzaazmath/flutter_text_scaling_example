@@ -11,7 +11,22 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false, home: HomeScreen());
+    return Consumer(
+      builder: (context, ref, child) {
+        final textScale = ref.watch(scaleProvider);
+        return MaterialApp(
+          builder: (context, widgetChild) {
+            final MediaQueryData data = MediaQuery.of(context);
+            return MediaQuery(
+              data: data.copyWith(textScaler: TextScaler.linear(textScale)),
+              child: widgetChild!,
+            );
+          },
+          debugShowCheckedModeBanner: false,
+          home: HomeScreen(),
+        );
+      },
+    );
   }
 }
 
