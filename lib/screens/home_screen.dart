@@ -10,15 +10,45 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-          backgroundColor: Colors.white,
-          title: Text("Description")),
+          backgroundColor: Colors.white, title: Text("Description"),
+        actions: [
+          Container(
+            height: 30,
+            width: 30,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              border: Border.all(color: primaryColor)
+            ),
+            child: Icon(Icons.text_fields_outlined,size: 14,),
+          ),
+          Container(
+            height: 30,
+            width: 30,
+            decoration: BoxDecoration(
+                color: Colors.white,
+                border: Border.all(color: primaryColor)
+            ),
+            child: Icon(Icons.text_fields_outlined,size: 20,),
+          ),
+          Container(
+            height: 30,
+            width: 30,
+            decoration: BoxDecoration(
+                color: Colors.white,
+                border: Border.all(color: primaryColor)
+            ),
+            child: Icon(Icons.text_fields_outlined,size: 28,),
+          ),
+          SizedBox(width: 10,),
+        ],
+      ),
       body: SingleChildScrollView(
         padding: EdgeInsets.all(20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Center(child: Text("Size: 38 US", style: textTheme.titleLarge)),
-            SizedBox(height: 20,),
+            SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -28,36 +58,53 @@ class HomeScreen extends StatelessWidget {
                     decoration: BoxDecoration(
                       border: Border.all(color: primaryColor),
                       shape: BoxShape.circle,
-                      color:i==0?primaryColor: Colors.white,
+                      color: i == 0 ? primaryColor : Colors.white,
                     ),
-                    child: Text(sizeList[i].toString(),style: textTheme.labelLarge?.copyWith(color:i==0?Colors.white: primaryColor),),
+                    child: Text(
+                      sizeList[i].toString(),
+                      style: textTheme.labelLarge?.copyWith(
+                        color: i == 0 ? Colors.white : primaryColor,
+                      ),
+                    ),
                   ),
                 ],
               ],
             ),
-            SizedBox(height: 20,),
+            SizedBox(height: 20),
             Text("Product details", style: textTheme.titleLarge),
-            SizedBox(height: 15,),
+            SizedBox(height: 15),
             Text("* Feature 1", style: textTheme.titleSmall),
-            SizedBox(height: 5,),
+            SizedBox(height: 5),
             Text("* Feature 2", style: textTheme.titleSmall),
-            SizedBox(height: 5,),
+            SizedBox(height: 5),
             Text("* Feature 3", style: textTheme.titleSmall),
-            SizedBox(height: 5,),
+            SizedBox(height: 5),
             Text("* Feature 4", style: textTheme.titleSmall),
-            SizedBox(height: 5,),
+            SizedBox(height: 5),
             Text("* Feature 5", style: textTheme.titleSmall),
-            SizedBox(height: 20,),
+            SizedBox(height: 20),
             Text("Composition", style: textTheme.titleLarge),
-            SizedBox(height: 15,),
-            Text("Outer Material : Cotton 100%  Calf:Leather 100%  Lining: Polyester 100%", style: textTheme.titleSmall),
-            SizedBox(height: 20,),
+            SizedBox(height: 15),
+            Text(
+              "Outer Material : Cotton 100%  Calf:Leather 100%  Lining: Polyester 100%",
+              style: textTheme.titleSmall,
+            ),
+            SizedBox(height: 20),
             Text("Size and fit", style: textTheme.titleLarge),
-            SizedBox(height: 15,),
-            Text("- Fits true to size. Take your normal Size", style: textTheme.titleSmall),
-            Text("- Mid weight, Slightly strechy fabric", style: textTheme.titleSmall),
-            Text("- The model is weariing its size larger", style: textTheme.titleSmall),
-            SizedBox(height: 20,),
+            SizedBox(height: 15),
+            Text(
+              "- Fits true to size. Take your normal Size",
+              style: textTheme.titleSmall,
+            ),
+            Text(
+              "- Mid weight, Slightly strechy fabric",
+              style: textTheme.titleSmall,
+            ),
+            Text(
+              "- The model is weariing its size larger",
+              style: textTheme.titleSmall,
+            ),
+            SizedBox(height: 20),
             Row(
               children: [
                 Container(
@@ -65,27 +112,30 @@ class HomeScreen extends StatelessWidget {
                   decoration: BoxDecoration(
                     border: Border.all(color: primaryColor),
                     shape: BoxShape.circle,
-                    color:Colors.white,
+                    color: Colors.white,
                   ),
-                  child:Icon(Icons.favorite,color: primaryColor,),
+                  child: Icon(Icons.favorite, color: primaryColor),
                 ),
-                SizedBox(width: 30,),
-                Expanded(child:  Container(
-                  padding: EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    border: Border.all(color: primaryColor),
-                    borderRadius: BorderRadius.circular(10),
-                      color:primaryColor
+                SizedBox(width: 30),
+                Expanded(
+                  child: Container(
+                    padding: EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                      border: Border.all(color: primaryColor),
+                      borderRadius: BorderRadius.circular(10),
+                      color: primaryColor,
+                    ),
+                    alignment: Alignment.center,
+                    child: Text(
+                      "ADD TO CART",
+                      style: textTheme.labelLarge?.copyWith(
+                        color: Colors.white,
+                      ),
+                    ),
                   ),
-                  alignment: Alignment.center,
-                  child: Text("ADD TO CART",style: textTheme.labelLarge?.copyWith(color:Colors.white),),
-                ),)
-                
+                ),
               ],
-            )
-
-
-
+            ),
           ],
         ),
       ),
