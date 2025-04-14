@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_text_scaling_example/main.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -21,8 +22,11 @@ class HomeScreen extends StatelessWidget {
               return Row(
                 children: [
                   GestureDetector(
-                    onTap: () {
+                    onTap: ()async {
+                      // Obtain shared preferences.
+                      final SharedPreferences prefs = await SharedPreferences.getInstance();
                       ref.read(scaleProvider.notifier).update((state) => 0.8);
+                      prefs.setDouble("textScale", 0.8);
                     },
                     child: Container(
                       height: 30,
@@ -35,8 +39,10 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ),
                   GestureDetector(
-                    onTap: () {
+                    onTap: () async{
+                      final SharedPreferences prefs = await SharedPreferences.getInstance();
                       ref.read(scaleProvider.notifier).update((state) => 1.0);
+                      prefs.setDouble("textScale", 1.0);
                     },
                     child: Container(
                       height: 30,
@@ -49,8 +55,10 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ),
                   GestureDetector(
-                    onTap: () {
+                    onTap: ()async {
+                      final SharedPreferences prefs = await SharedPreferences.getInstance();
                       ref.read(scaleProvider.notifier).update((state) => 1.8);
+                      prefs.setDouble("textScale", 1.8);
                     },
                     child: Container(
                       height: 30,
