@@ -17,6 +17,7 @@ class HomeScreen extends StatelessWidget {
         actions: [
           Consumer(
             builder: (context, ref, child) {
+              final textScale = ref.watch(scaleProvider);
               return Row(
                 children: [
                   GestureDetector(
@@ -27,10 +28,10 @@ class HomeScreen extends StatelessWidget {
                       height: 30,
                       width: 30,
                       decoration: BoxDecoration(
-                        color: Colors.white,
+                        color:textScale==0.8?primaryColor: Colors.white,
                         border: Border.all(color: primaryColor),
                       ),
-                      child: Icon(Icons.text_fields_outlined, size: 14),
+                      child: Icon(Icons.text_fields_outlined, size: 14,color: textScale==0.8?Colors.white:Colors.black,),
                     ),
                   ),
                   GestureDetector(
@@ -41,10 +42,10 @@ class HomeScreen extends StatelessWidget {
                       height: 30,
                       width: 30,
                       decoration: BoxDecoration(
-                        color: Colors.white,
+                        color: textScale==1.0?primaryColor: Colors.white,
                         border: Border.all(color: primaryColor),
                       ),
-                      child: Icon(Icons.text_fields_outlined, size: 20),
+                      child: Icon(Icons.text_fields_outlined, size: 20,color: textScale==1.0?Colors.white:Colors.black,),
                     ),
                   ),
                   GestureDetector(
@@ -55,10 +56,10 @@ class HomeScreen extends StatelessWidget {
                       height: 30,
                       width: 30,
                       decoration: BoxDecoration(
-                        color: Colors.white,
+                        color: textScale==1.8?primaryColor: Colors.white,
                         border: Border.all(color: primaryColor),
                       ),
-                      child: Icon(Icons.text_fields_outlined, size: 28),
+                      child: Icon(Icons.text_fields_outlined, size: 28,color: textScale==1.8?Colors.white:Colors.black,),
                     ),
                   ),
                 ],
