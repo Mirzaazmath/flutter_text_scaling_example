@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_text_scaling_example/main.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -12,32 +14,53 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
           backgroundColor: Colors.white, title: Text("Description"),
         actions: [
-          Container(
-            height: 30,
-            width: 30,
-            decoration: BoxDecoration(
-              color: Colors.white,
-              border: Border.all(color: primaryColor)
-            ),
-            child: Icon(Icons.text_fields_outlined,size: 14,),
-          ),
-          Container(
-            height: 30,
-            width: 30,
-            decoration: BoxDecoration(
-                color: Colors.white,
-                border: Border.all(color: primaryColor)
-            ),
-            child: Icon(Icons.text_fields_outlined,size: 20,),
-          ),
-          Container(
-            height: 30,
-            width: 30,
-            decoration: BoxDecoration(
-                color: Colors.white,
-                border: Border.all(color: primaryColor)
-            ),
-            child: Icon(Icons.text_fields_outlined,size: 28,),
+          Consumer(builder: (context,ref,child){
+            return  Row(children: [
+              GestureDetector(
+                onTap:(){
+                  ref.read(scaleProvider.notifier).update((state)=>0.8);
+             },
+                child: Container(
+                  height: 30,
+                  width: 30,
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      border: Border.all(color: primaryColor)
+                  ),
+                  child: Icon(Icons.text_fields_outlined,size: 14,),
+                ),
+              ),
+              GestureDetector(
+                onTap:(){
+                  ref.read(scaleProvider.notifier).update((state)=>1.0);
+                },
+                child: Container(
+                  height: 30,
+                  width: 30,
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      border: Border.all(color: primaryColor)
+                  ),
+                  child: Icon(Icons.text_fields_outlined,size: 20,),
+                ),
+              ),
+              GestureDetector(
+                onTap:(){
+                  ref.read(scaleProvider.notifier).update((state)=>1.8);
+                },
+                child: Container(
+                  height: 30,
+                  width: 30,
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      border: Border.all(color: primaryColor)
+                  ),
+                  child: Icon(Icons.text_fields_outlined,size: 28,),
+                ),
+              ),
+            ],);
+          },
+
           ),
           SizedBox(width: 10,),
         ],

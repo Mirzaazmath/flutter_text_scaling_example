@@ -16,4 +16,4 @@ class MyApp extends StatelessWidget {
 }
 
 /// Created a StateProvider to manage the text scaling changes
-final scaleProvider = StateProvider((ref) => 1);
+final scaleProvider = StateProvider((ref) => 1.0);
